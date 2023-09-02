@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Portfolio
+{% endblock %}
+
+{% block body %}
+	<header>
+        <h1>Valentin Tainon</h1>
+        <p>Developpeur Web Junior</p>
+    </header>
+
+	<section id="about">
+		<p>Fort de mes dix ans d'expérience en tant que mécanicien aéronautique chez Airbus, aujourd'hui à 30 ans, je me lance le défi de réaliser une reconversion professionnelle dans le développement web.
+		Ainsi, après avoir suivi une formation spécialisé, j'ai le souhait de faire carrière dans le développement web, domaine qui me passionne grandement.</p>
+	</section>
+
+	<section id="training">
+        <p>Udemy</p>
+        <p>Ap Formation</p>
+        <p>Cleatis</p>
+    </section>
+
+	<section id="skills">
+	
+	</section>
+
+	<section id="projects">
+		{% for project in projects %}
+			<a href="{{ project.link }}" target="_blank">
+				{{ project.name }}
+				{{ project.description }}
+				<img src="{{ vich_uploader_asset(project, 'imageFile') }}" alt="{{ project.alt }}">
+			</a>
+		{% endfor %}
+	</section>
+
+	<section id="contact">
+	
+	</section>
+{% endblock %}

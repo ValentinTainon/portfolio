@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block navbar %}{% endblock %}
+
+{% block body %}
+    <section id="login">
+
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+        <div class="login-form-box">
+            <form action="{{ path('app_login') }}" method="post" class="login-form">
+                <h2>Connexion</h2>
+
+                <div class="input-box">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="text" id="username" name="_username" value="{{ last_username }}" required>
+                    <label for="username">Nom d'utilisateur</label>
+                </div>
+                
+                <div class="input-box">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="password" name="_password" required>
+                    <label for="password">Mot de passe</label>
+                </div>
+    
+                <a href="{{ path('app_forgot_password_request') }}" class="forget">Mot de passe oublié ?</a>
+
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                
+                <button type="submit">Connexion</button>
+            </form>
+        </div>
+    </section>
+{% endblock %}
+
+{% block footer %}{% endblock %}

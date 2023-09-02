@@ -1,0 +1,247 @@
+/* RÈGLES GÉNÉRALES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    letter-spacing: .5px;
+}
+
+[data-theme="light"] {
+    --primary-color: #fdfffd;
+    --secondary-color: #70fb94;
+    --third-color: #171916;
+}
+
+[data-theme="dark"] {
+    --primary-color: #171916;
+    --secondary-color: #70fb94;
+    --third-color: #fdfffd;
+}
+
+body {
+    background-color: var(--primary-color);
+    transition: .2s ease-in-out;
+    padding-left: 25vw;
+}
+
+/* NAVBAR */
+nav {
+    width: 20vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -20vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    opacity: 0;
+    transition: .4s ease-in-out;
+    background-color: rgb(174, 0, 255);
+}
+
+.btn {
+    height: 30px;
+    width: 140px;
+    font-size: 15px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    border-top-left-radius: 10px;
+    border-top: 2px solid var(--secondary-color);
+    border-left: 2px solid var(--secondary-color);
+}
+
+.btn::before {
+    content: '';
+    height: 20px;
+    border-right: 2px solid var(--secondary-color);
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    transition: .2s ease-in-out;
+}
+
+.btn::after {
+    content: '';
+    height: 10px;
+    width: 132px;
+    border-right: 2px solid var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    position: absolute;
+    right: 2px;
+    bottom: -1px;
+    transform: skew(145deg);
+    transition: .2s ease-in-out;
+}
+
+.btn:hover,
+.btn:focus {
+    color: var(--third-color);
+    border-color: var(--third-color);
+    margin-left: 15px;
+}
+
+.btn:hover::before,
+.btn:hover::after,
+.btn:focus::before,
+.btn:focus::after {
+    border-color: var(--third-color);
+    cursor: initial;
+}
+
+nav i {
+    cursor: pointer;
+}
+
+.nav-element {
+    position: relative;
+    left: -20vw;
+    transition: .3s ease-in-out;
+}
+
+/* HEADER */
+header {
+    width: 100vw;
+    height: 100vh;
+    margin-top: 100vh;
+    opacity: 0;
+    transition: .4s ease-in-out;
+}
+
+/* ABOUT */
+
+
+/* TRAINING */
+
+
+/* SKILLS */
+
+
+/* PROJECTS */
+
+
+/* CONTACT */
+
+
+/* FOOTER */
+footer {
+    width: 100vw;
+    height: 8vh;
+    position: relative;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+/* LOGIN */
+#login {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    left: -25vw;
+    background: url(/public/images/5.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form-box {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    color: #171916;
+    border: 2px solid #171916;
+    border-radius: 20px;
+    background: #ffffff1a;
+    backdrop-filter: blur(20px);
+    padding: 40px 70px;
+}
+
+.login-form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login-form-box h2 {
+    font-size: 2em;
+    text-align: center;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #171916;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    transition: 0.5s;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    font-size: 1em;
+    color: #171916;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0 38px 0 5px;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+}
+
+.input-box i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    font-size: 1.2em;
+}
+
+.forget {
+    font-size: 0.8em;
+    color: #171916;
+}
+
+.forget:hover {
+    text-decoration: underline;
+}
+
+button {
+    width: 100%;
+    height: 40px;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: white;
+    background: #171916;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
