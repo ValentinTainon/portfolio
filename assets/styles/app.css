@@ -22,7 +22,6 @@
 
 body {
     background-color: var(--primary-color);
-    transition: .2s ease-in-out;
     padding-left: 25vw;
 }
 
@@ -65,7 +64,6 @@ nav {
     position: absolute;
     top: -2px;
     right: -2px;
-    transition: .2s ease-in-out;
 }
 
 .btn::after {
@@ -78,7 +76,6 @@ nav {
     right: 2px;
     bottom: -1px;
     transform: skew(145deg);
-    transition: .2s ease-in-out;
 }
 
 .btn:hover,
@@ -103,8 +100,15 @@ nav i {
 .nav-element {
     position: relative;
     left: -20vw;
-    transition: .3s ease-in-out;
 }
+
+body,
+.nav-element,
+.btn::before,
+.btn::after {
+    transition: .2s ease-in-out;
+}
+
 
 /* HEADER */
 header {

@@ -20,6 +20,15 @@ onload = () => {
     setInterval(homepageAnimation, 100);
 }
 
+/* AUDIO */
+// const audio = document.querySelector('audio');
+// const buttons = document.querySelectorAll('.btn');
+
+// buttons.forEach(btn => {
+//     btn.onmouseenter = () => { audio.play(); }
+//     btn.onclick = () => { audio.play(); }
+// })
+
 /* DARK MODE */
 const body = document.querySelector('body');
 const toggle = document.querySelector('#toggle-theme');
