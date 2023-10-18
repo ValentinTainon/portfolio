@@ -1,0 +1,32 @@
+// THEMES COLORS
+$light-theme: (
+    primary-color : #009f74,
+    background-color : #faf9fc,
+    primary-text-color : #162329,
+    secondary-text-color : #263d47,
+    success-color : #54f29b,
+    danger-color : #F2545B,
+);
+
+$dark-theme: (
+    primary-color : #31ff72,
+    background-color : #162329,
+    primary-text-color : #faf9fc,
+    secondary-text-color : #bcc9cf,
+    success-color : #54f29b,
+    danger-color : #F2545B,
+);
+    
+:root {
+    [data-theme=light] {
+        @each $key, $val in $light-theme {
+            --#{$key}: #{$val};
+        }
+    }
+    
+    [data-theme=dark] {
+        @each $key, $val in $dark-theme {
+            --#{$key}: #{$val};
+        }
+    }
+}

@@ -1,20 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Valentin Tainon | Portfolio{% endblock %}
-
 {% block body %}
-	<header>
-		<h1>Valentin Tainon</h1>
-		<h2>Developpeur Web Junior</h2>
-	</header>
+	{% block navbar %}
+		{% include "components/navbar.html.twig" %}
+	{% endblock %}
+	<div class="homepage-container">
+		<header id="home">
+			<h1>Bienvenue, Je m'appelle <strong>Valentin Tainon</strong> et je suis Developpeur Web</h1>
+			<a class="btn" href="{{ asset('document/cv.pdf') }}">Mon CV (PDF)</a>
+		</header>
 
-	<section id="about">
-		<h2>À propos de moi</h2>
-		<p>Bonjour,</p>
-			<p>Je m’appelle <strong>Valentin Tainon</strong>, étant passionné de mécanique, j’ai travaillé dans l'entreprise <strong>AIRBUS</strong> depuis que
+		<section id="about">
+			<h2>À propos de moi</h2>
+			<p>Hey, moi c'est <b>Valentin</b>, étant passionné de mécanique, j’ai travaillé dans l'entreprise <strong>AIRBUS</strong> depuis que
 			j’ai intégré son Lycée professionnel en 2008, j’ai par la suite intégré la chaîne d’assemblage de l’
 			A330 où j’ai travaillé en tant que <b>mécanicien aéronautique</b> durant <b>10 années</b>.</p>
-			Bien que j’ai eu un grand plaisir à travailler dans cette entreprise, j’ai eu le souhait à 30 ans, de
+			<p>Bien que j’ai eu un grand plaisir à travailler dans cette entreprise, j’ai eu le souhait à 30 ans, de
 			réaliser une <b>reconversion professionnelle</b>.</p>
 			<p>Comme cité plus haut, je suis passionné par la création manuelle mais aussi par l’informatique, je
 			me suis donc naturellement orienté vers le <strong>développement web</strong>, car je retrouve cet aspect de
@@ -30,48 +31,59 @@
 			<p>Je dispose aussi d'une bonne base cotée front-end (<strong>HTML, CSS, Javascript</strong>), mais je précise
 			qu’étant curieux et motivé, je suis tout à fait ouvert à l’apprentissage de nouvelles technologies
 			selon les besoins de l’entreprise.</p>
-	</section>
+		</section>
 
-	<section id="training">
-		<h2>Ma formation</h2>
+		<section id="training">
+			<h2>Ma formation</h2>
 
-		<p>Mai 2021</p>
-		<h3>Udemy 2022</h3>
-		<h4>Formation Développeur Web par <b>JOHN TAIEB</b></h4>
-		<p>Formation en ligne pour découvrir et apprendre les bases du développement web</p>
+			<p>Juin 2022 - Juin 2023</p>
+			<h3>Ap Formation</h3>
+			<img src="{{ asset('images/logos/logo-ap-formation.svg') }}" alt="Logo AP Formation">
+			<h4>Formation Concepteur Développeur d'Applications</h4>
+			<p>Formation en présentiel complète sur la conception et le développement d'applications web</p>
 
-		<p>Juin 2022 - Juin 2023</p>
-		<h3>Ap Formation</h3>
-		<h4>Formation Concepteur Développeur d'Applications</h4>
-		<p>Formation en présentiel complète sur la conception et le développement d'applications web</p>
+			<p>Février - Mai 2023</p>
+			<h3>Cleatis</h3>
+			<img src="{{ asset('images/logos/logo-cleatis.webp') }}" alt="Logo Cleatis">
+			<h4>Stage Développeur Web</h4>
+			<p>Stage d'immersion en entreprise et de mise en pratique des compétences acquises en formation</p>
+		</section>
 
-		<p>Février - Mai 2023</p>
-		<h3>Cleatis</h3>
-		<h4>Stage Développeur Web</h4>
-		<p>Stage d'immersion en entreprise et de mise en pratique des compétences acquises en formation</p>
-	</section>
+		<section id="projects">
+			<h2>Mes réalisations</h2>
+			<div class="projects-content">
+				{% for project in projects %}
+					<div class="row">
+						<div class="left">
+							<h3>{{ project.name }}</h3>
+							<div class="bottom-content">
+								<div class="logos-container">
+									{% for language in project.languages %}
+										<img class="logo" src="{{ vich_uploader_asset(language, 'logoFile') }}" alt="{{ language.logoAlt }}">
+									{% endfor %}
+								</div>
+								<div class="description">
+									<p>{{ project.description }}</p>
+								</div>
+							</div>
+						</div>
+							<div class="right">
+								<a href="{{ project.link }}" target="_blank">
+									<img src="{{ vich_uploader_asset(project, 'imageFile') }}" alt="{{ project.imgAlt }}">
+								</a>
+							</div>
+					</div>
+				{% endfor %}
+			</div>
+		</section>
 
-	<section id="skills">
-		<h2>Mes compétences</h2>
-		<h3>HTML</h3>
-		<h3>CSS</h3>
-		<h3>Javascript</h3>
-		<h3>Symfony</h3>
-	</section>
+		<section id="contact">
+			<h2>Contact</h2>
+			{% include "components/contact_form.html.twig" %}
+		</section>
 
-	<section id="projects">
-		<h2>Mes réalisations</h2>
-		{% for project in projects %}
-			<a href="{{ project.link }}" target="_blank">
-				{{ project.name }}
-				{{ project.description }}
-				<img src="{{ vich_uploader_asset(project, 'imageFile') }}" alt="{{ project.alt }}">
-			</a>
-		{% endfor %}
-	</section>
-
-	<section id="contact">
-		<h2>Contact</h2>
-		{% include "components/contact_form.html.twig" %}
-	</section>
+		{% block footer %}
+            {% include "components/footer.html.twig" %}
+        {% endblock %}
+	</div>
 {% endblock %}

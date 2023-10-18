@@ -2,32 +2,37 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{% block title %}Portfolio{% endblock %}</title>
-        {# <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}" alt="Favicon traces de pas animal"/> #}
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <meta name="description" content="Bienvenue sur mon portfolio">
+        <link rel="icon" href="/favicon-light-mode.ico" type="image/x-icon" sizes="48x48">
+        <link rel="icon"
+            href="{{ asset('images/favicons/favicon-light-mode.svg') }}"
+            media="(prefers-color-scheme: light)"
+            type="image/svg+xml"
+            sizes="any">
+        <link rel="icon"
+            href="{{ asset('images/favicons/favicon-dark-mode.svg') }}"
+            media="(prefers-color-scheme: dark)"
+            type="image/svg+xml"
+            sizes="any">
+        <link rel="mask-icon" href="{{ asset('images/favicons/favicon.svg') }}" color="#000000">
+        <link rel="apple-touch-icon" href="{{ asset('images/favicons/apple-touch-icon.png') }}" sizes="180x180">
+        <link rel="manifest" href="/manifest.json">
+        <title>{% block title %}Valentin Tainon | Portfolio{% endblock %}</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+        {% block stylesheets %}{{ encore_entry_link_tags('app') }}{% endblock %}
     </head>
-    <body data-theme="light">
-        <audio>
-            <source src="/sounds/shake-it-baby.mp3" type="audio/mp3">
-        </audio>
-        {% block navbar %}
-            {% include "components/navbar.html.twig" %}
-        {% endblock %}
+    <body data-theme="">
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success"><p>{{ message }}</p></div>
+        {% endfor %}
+
+		{% for message in app.flashes('error') %}
+            <div class="alert alert-danger"><p>{{message}}</p></div>
+        {% endfor %}
 
         {% block body %}{% endblock %}
-        
-        {% block footer %}
-            {% include "components/footer.html.twig" %}
-        {% endblock %}
     </body>
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
+        {% block javascripts %}{{ encore_entry_script_tags('app') }}{% endblock %}
 </html>

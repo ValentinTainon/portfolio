@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\ProjectRepository;
@@ -26,7 +28,7 @@ class Project
     #[ORM\Column(length: 255)]
     private ?string $link = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $imageName = null;
 
     #[Vich\UploadableField(mapping: 'images', fileNameProperty: 'imageName')]
@@ -36,7 +38,15 @@ class Project
     private ?\DateTimeImmutable $updatedAt = null;
 
     #[ORM\Column(length: 100)]
-    private ?string $alt = null;
+    private ?string $imgAlt = null;
+
+    #[ORM\ManyToMany(targetEntity: Language::class)]
+    private Collection $languages;
+
+    public function __construct()
+    {
+        $this->languages = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -79,14 +89,14 @@ class Project
         return $this;
     }
 
-    public function setImageName(?string $imageName): void
-    {
-        $this->imageName = $imageName;
-    }
-
     public function getImageName(): ?string
     {
         return $this->imageName;
+    }
+    
+    public function setImageName(?string $imageName): void
+    {
+        $this->imageName = $imageName;
     }
 
     public function getImageFile(): ?File
@@ -126,14 +136,38 @@ class Project
         return $this;
     }
 
-    public function getAlt(): ?string
+    public function getImgAlt(): ?string
     {
-        return $this->alt;
+        return $this->imgAlt;
     }
 
-    public function setAlt(string $alt): static
+    public function setImgAlt(string $imgAlt): static
     {
-        $this->alt = $alt;
+        $this->imgAlt = $imgAlt;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Language>
+     */
+    public function getLanguages(): Collection
+    {
+        return $this->languages;
+    }
+
+    public function addLanguage(Language $language): static
+    {
+        if (!$this->languages->contains($language)) {
+            $this->languages->add($language);
+        }
+
+        return $this;
+    }
+
+    public function removeLanguage(Language $language): static
+    {
+        $this->languages->removeElement($language);
 
         return $this;
     }

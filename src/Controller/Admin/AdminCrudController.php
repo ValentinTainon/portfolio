@@ -13,6 +13,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 
 class AdminCrudController extends AbstractCrudController
 {
@@ -36,26 +37,26 @@ class AdminCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        yield TextField::new('username', 'Nom Administrateur')->setRequired(false);
-        yield TextField::new('email', 'E-mail')->setRequired(false);
+        yield TextField::new('username', 'Administrateur')->setRequired(false);
         yield ArrayField::new('roles', 'Rôle')->setRequired(false)->setDisabled();
         yield TextField::new('password')
-        ->onlyWhenUpdating()
-        ->setFormType(RepeatedType::class)
-        ->setFormTypeOptions([
-            'type' => PasswordType::class,
-            'first_options' => ['label' => 'Nouveau mot de passe', 'hash_property_path' => 'password'],
-            'second_options' => ['label' => 'Répéter le nouveau mot de passe'],
-            'mapped' => false,
-            'constraints' => [
-                new Length(['max' => 4096]), // max length allowed by Symfony for security reasons
-                new Regex([
-                    'pattern' => '/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&.*-]).{8,}$/',
-                    'message' => 'Votre mot de passe doit contenir au minimum 8 caractères avec au moins une lettre majuscule,
-                    une lettre minuscule, un chiffre et un caractère spécial.'
-                ]),
-            ],
-        ])
-        ->setRequired(false);
+            ->onlyWhenUpdating()
+            ->setFormType(RepeatedType::class)
+            ->setFormTypeOptions([
+                'type' => PasswordType::class,
+                'first_options' => ['label' => 'Nouveau mot de passe', 'hash_property_path' => 'password'],
+                'second_options' => ['label' => 'Répéter le nouveau mot de passe'],
+                'mapped' => false,
+                'constraints' => [
+                    new Length(['max' => 4096]), // max length allowed by Symfony for security reasons
+                    new Regex([
+                        'pattern' => '/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&.*-]).{8,}$/',
+                        'message' => 'Votre mot de passe doit contenir au minimum 8 caractères avec au moins une lettre majuscule,
+                        une lettre minuscule, un chiffre et un caractère spécial.'
+                    ]),
+                ],
+            ])
+            ->setRequired(false);
+        yield BooleanField::new('isEnableMaintenance', 'Mode maintenance')->setRequired(false)->setDisabled($pageName === Crud::PAGE_INDEX ? true : false);
     }
 }

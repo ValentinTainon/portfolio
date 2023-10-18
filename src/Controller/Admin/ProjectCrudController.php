@@ -12,6 +12,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 
 class ProjectCrudController extends AbstractCrudController
 {
@@ -22,8 +23,8 @@ class ProjectCrudController extends AbstractCrudController
 
     public function configureCrud(Crud $crud): Crud
     {
-        return $crud->setPageTitle(Crud::PAGE_INDEX, 'Admin')
-            ->setPageTitle(Crud::PAGE_NEW, 'Ajouter un nouveau projet')
+        return $crud->setPageTitle(Crud::PAGE_INDEX, 'Projets')
+            ->setPageTitle(Crud::PAGE_NEW, 'Ajouter un projet')
             ->setPageTitle(Crud::PAGE_EDIT, 'Modifier le projet')
             ->setDefaultSort(['updatedAt' => 'DESC']);
     }
@@ -39,11 +40,13 @@ class ProjectCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        yield TextField::new('name', 'Nom du projet')->setRequired(false);
-        yield TextareaField::new('description', 'Description')->setRequired(false);
-        yield TextField::new('link', 'Lien')->setRequired(false);
-        yield TextField::new('imageFile', 'Image (jpg, png, webp) Taille max: 2 Mo')->setFormType(VichImageType::class)->onlyOnForms();
-        yield ImageField::new('imageName', 'Image')->setBasePath('/images')->onlyOnIndex();
-        yield DateTimeField::new('updatedAt')->setLabel('Date')->onlyOnIndex();
+        yield TextField::new('name', 'Nom du projet');
+        yield TextareaField::new('description', 'Description');
+        yield TextField::new('link', 'Lien');
+        yield TextField::new('imageFile', 'Image (jpg, png, webp) Taille max: 2 Mo')->setFormType(VichImageType::class)->onlyOnForms()->setRequired($pageName === Crud::PAGE_NEW ? true : false);
+        yield ImageField::new('imageName', 'Image')->setBasePath('/images/projects')->onlyOnIndex();
+        yield DateTimeField::new('updatedAt', 'Date de modification')->onlyOnIndex();
+        yield TextField::new('imgAlt', 'Texte alternatif');
+        yield AssociationField::new('languages', 'Langages');
     }
 }

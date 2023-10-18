@@ -1,7 +1,9 @@
-{{ form_start(contactForm) }}
+{{ form_start(contactForm, {'attr': {'id': 'contact_form'}}) }}
 	{{ form_row(contactForm.nom) }}
 	{{ form_row(contactForm.email) }}
 	{{ form_row(contactForm.objet) }}
 	{{ form_row(contactForm.message) }}
-	<button class="btn">ENVOYER</button>
+	{{ form_row(contactForm.recaptcha) }}
+	{{ form_errors(contactForm.recaptcha) }}
+	{{ form_row(contactForm.submit) }}
 {{ form_end(contactForm) }}

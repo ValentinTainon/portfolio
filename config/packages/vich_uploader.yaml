@@ -5,7 +5,11 @@ vich_uploader:
         type: attribute
 
     mappings:
+        logos:
+            uri_prefix: '/images/logos'
+            upload_destination: '%logos_directory%'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
         images:
-            uri_prefix: '/images'
+            uri_prefix: '/images/projects'
             upload_destination: '%images_directory%'
             namer: Vich\UploaderBundle\Naming\SmartUniqueNamer

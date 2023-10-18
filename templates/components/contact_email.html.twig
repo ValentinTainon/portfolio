@@ -1,0 +1,16 @@
+{% apply inky_to_html %}
+    <container class="email">
+        <row class="header">
+            <columns>
+                <spacer size="20"></spacer>
+                <h1 class="text-center">Message de {{ contactFormData.nom }}</h1>
+            </columns>
+        </row>
+        <row class="body">
+            <columns>
+                <spacer size="10"></spacer>
+                <p>{{ contactFormData.message }}</p>
+            </columns>
+        </row>
+    </container>
+{% endapply %}

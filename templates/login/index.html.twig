@@ -1,7 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{% block navbar %}{% endblock %}
-
 {% block body %}
     <section id="login">
 
@@ -15,7 +13,7 @@
 
                 <div class="input-box">
                     <i class="fa-solid fa-envelope"></i>
-                    <input type="text" id="username" name="_username" value="{{ last_username }}" required>
+                    <input type="text" id="username" name="_username" required>
                     <label for="username">Nom d'utilisateur</label>
                 </div>
                 
@@ -24,15 +22,11 @@
                     <input type="password" id="password" name="_password" required>
                     <label for="password">Mot de passe</label>
                 </div>
-    
-                <a href="{{ path('app_forgot_password_request') }}" class="forget">Mot de passe oublié ?</a>
-
+                
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
                 
-                <button type="submit">Connexion</button>
+                <button class="btn" type="submit">Connexion</button>
             </form>
         </div>
     </section>
 {% endblock %}
-
-{% block footer %}{% endblock %}

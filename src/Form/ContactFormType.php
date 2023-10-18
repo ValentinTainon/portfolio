@@ -4,10 +4,13 @@ namespace App\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use VictorPrdh\RecaptchaBundle\Form\ReCaptchaType;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ContactFormType extends AbstractType
 {
@@ -15,32 +18,37 @@ class ContactFormType extends AbstractType
     {
         $builder
             ->add('nom', TextType::class, [
-                'label' => false,
-                'attr' => ['placeholder' => 'Votre nom'],
+                'label' => 'Votre Nom',
+                'row_attr' => ['class' => 'row'],
                 'constraints' => [
                     new NotBlank(['message' => 'Veuillez saisir votre nom']),
                 ]
             ])
             ->add('email', EmailType::class, [
-                'label' => false,
-                'attr' => ['placeholder' => 'Votre email'],
+                'label' => 'Votre email',
+                'row_attr' => ['class' => 'row'],
                 'constraints' => [
                     new NotBlank(['message' => 'Veuillez saisir votre email']),
                 ]
             ])
             ->add('objet', TextType::class, [
-                'label' => false,
-                'attr' => ['placeholder' => 'Objet'],
+                'label' => 'Objet',
+                'row_attr' => ['class' => 'row'],
                 'constraints' => [
                     new NotBlank(['message' => 'Veuillez saisir un objet']),
                 ]
             ])
-            ->add('message', TextType::class, [
-                'label' => false,
-                'attr' => ['placeholder' => 'Votre message'],
+            ->add('message', TextareaType::class, [
+                'label' => 'Votre message',
+                'row_attr' => ['class' => 'row'],
                 'constraints' => [
                     new NotBlank(['message' => 'Veuillez saisir votre message']),
                 ]
+            ])
+            ->add('recaptcha', ReCaptchaType::class)
+            ->add('submit', SubmitType::class, [
+                'label' => 'Envoyer',
+                'attr' => ['class' => 'btn']
             ]);
     }
 

@@ -31,6 +31,9 @@ class Admin implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $email = null;
 
+    #[ORM\Column]
+    private ?bool $isEnableMaintenance = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -77,6 +80,18 @@ class Admin implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): static
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
     /**
      * @see PasswordAuthenticatedUserInterface
      */
@@ -101,14 +116,14 @@ class Admin implements UserInterface, PasswordAuthenticatedUserInterface
         // $this->plainPassword = null;
     }
 
-    public function getEmail(): ?string
+    public function isEnableMaintenance(): ?bool
     {
-        return $this->email;
+        return $this->isEnableMaintenance;
     }
 
-    public function setEmail(string $email): static
+    public function setIsEnableMaintenance(bool $isEnableMaintenance): static
     {
-        $this->email = $email;
+        $this->isEnableMaintenance = $isEnableMaintenance;
 
         return $this;
     }
