@@ -18,29 +18,25 @@ class ContactFormType extends AbstractType
     {
         $builder
             ->add('nom', TextType::class, [
-                'label' => 'Votre Nom',
-                'row_attr' => ['class' => 'row'],
+                'label' => 'Votre nom / prénom',
                 'constraints' => [
                     new NotBlank(['message' => 'Veuillez saisir votre nom']),
                 ]
             ])
             ->add('email', EmailType::class, [
                 'label' => 'Votre email',
-                'row_attr' => ['class' => 'row'],
                 'constraints' => [
                     new NotBlank(['message' => 'Veuillez saisir votre email']),
                 ]
             ])
             ->add('objet', TextType::class, [
                 'label' => 'Objet',
-                'row_attr' => ['class' => 'row'],
                 'constraints' => [
                     new NotBlank(['message' => 'Veuillez saisir un objet']),
                 ]
             ])
             ->add('message', TextareaType::class, [
                 'label' => 'Votre message',
-                'row_attr' => ['class' => 'row'],
                 'constraints' => [
                     new NotBlank(['message' => 'Veuillez saisir votre message']),
                 ]
@@ -48,7 +44,7 @@ class ContactFormType extends AbstractType
             ->add('recaptcha', ReCaptchaType::class)
             ->add('submit', SubmitType::class, [
                 'label' => 'Envoyer',
-                'attr' => ['class' => 'btn']
+                'attr' => ['class' => 'btn sound']
             ]);
     }
 

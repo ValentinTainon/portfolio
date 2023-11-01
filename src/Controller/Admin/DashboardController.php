@@ -3,7 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Admin;
-use App\Entity\Language;
+use App\Entity\Tool;
 use App\Entity\Project;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -30,7 +30,7 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToCrud('Administrateur', 'fas fa-user-secret', Admin::class);
         yield MenuItem::linkToCrud('Projets', 'fas fa-laptop', Project::class);
-        yield MenuItem::linkToCrud('Langages', 'fas fa-code', Language::class);
+        yield MenuItem::linkToCrud('Technos', 'fas fa-code', Tool::class);
         yield MenuItem::linktoRoute('Retour sur le site', 'fas fa-home', 'app_homepage');
     }
 }

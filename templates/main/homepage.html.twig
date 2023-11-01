@@ -1,89 +1,86 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-	{% block navbar %}
+	{# LOADING PAGE #}
+	{% include "components/loading_page.html.twig" %}
+	{# HOMEPAGE #}
+	<div class="homepage">
+		{# NAVBAR #}
 		{% include "components/navbar.html.twig" %}
-	{% endblock %}
-	<div class="homepage-container">
+		{# HEADER #}
 		<header id="home">
-			<h1>Bienvenue, Je m'appelle <strong>Valentin Tainon</strong> et je suis Developpeur Web</h1>
-			<a class="btn" href="{{ asset('document/cv.pdf') }}">Mon CV (PDF)</a>
+			<div class="header-content">
+				<h1>Bienvenue, moi c'est <strong>Valentin Tainon</strong></h1>
+				<h2>Je suis <strong>Développeur Web</strong> Junior</h2>
+			</div>
 		</header>
-
+		{# ABOUT #}
 		<section id="about">
-			<h2>À propos de moi</h2>
-			<p>Hey, moi c'est <b>Valentin</b>, étant passionné de mécanique, j’ai travaillé dans l'entreprise <strong>AIRBUS</strong> depuis que
-			j’ai intégré son Lycée professionnel en 2008, j’ai par la suite intégré la chaîne d’assemblage de l’
-			A330 où j’ai travaillé en tant que <b>mécanicien aéronautique</b> durant <b>10 années</b>.</p>
-			<p>Bien que j’ai eu un grand plaisir à travailler dans cette entreprise, j’ai eu le souhait à 30 ans, de
-			réaliser une <b>reconversion professionnelle</b>.</p>
-			<p>Comme cité plus haut, je suis passionné par la création manuelle mais aussi par l’informatique, je
-			me suis donc naturellement orienté vers le <strong>développement web</strong>, car je retrouve cet aspect de
-			création en partant de zéro, le tout de manière numérique ce qui est très satisfaisant.</p>
-			<p>Ainsi, pour réaliser cette reconversion, j’ai suivi une formation de <strong>Concepteur Développeur d’
-			Applications</strong> en Bac+3 chez <strong>AP Formation</strong> à <strong>Toulouse</strong>.</p>
-			<p>Durant mon cursus de formation, j’ai été formé sur la partie <b>conception</b> (analyse
-			du besoin, rédaction d’un cahier des charges, diagrammes, maquettage…), mais aussi sur la
-			partie <b>réalisation</b> d’une application (développement <b>Front-end</b> et <b>Back-end</b>).</p>
-			<p>J’ai également eu l’occasion d’avoir une première expérience professionnelle lors d’un stage dans l'agence web <strong>CLEATIS</strong>, situé sur <b>Lyon</b>.</p>
-			<p>Concernant la partie technique, j’ai une affinité avec le back-end via le framework PHP
-			«<strong>Symfony</strong>».</p>
-			<p>Je dispose aussi d'une bonne base cotée front-end (<strong>HTML, CSS, Javascript</strong>), mais je précise
-			qu’étant curieux et motivé, je suis tout à fait ouvert à l’apprentissage de nouvelles technologies
-			selon les besoins de l’entreprise.</p>
+			<div class="about-content">
+				<h2 class="title-section">À propos de moi</h2>
+				<div class="text-content">
+					<p>
+						<i class="fa-solid fa-quote-left"></i> 
+						Après dix ans de travail en tant que mécanicien aéronautique au sein d'Airbus,
+						j'ai effectué une formation de Concepteur Développeur d'Applications.
+					</p>
+					<p>
+						Ce parcours atypique m'a permis de 'digitaliser' mes compétences de constructeur 
+						et de les mettre au service de la création d'application web.
+					</p>
+					<p>
+						Passionné de hardware et d'informatique de manière générale, j'ai 
+						développé une curiosité qui me pousse à apprendre en permanence.
+					</p>
+		
+					<p>
+						Bien que j'en sois à mes balbutiements, j'ai la volonté de monter rapidement 
+						en compétences et de proposer des projets toujours plus perfectionnés. 
+						<i class="fa-solid fa-quote-right"></i>
+					</p>
+				</div>
+				<a class="btn sound" href="{{ asset('document/cv.pdf') }}">Téléchargez mon CV</a>
+			</div>
 		</section>
-
-		<section id="training">
-			<h2>Ma formation</h2>
-
-			<p>Juin 2022 - Juin 2023</p>
-			<h3>Ap Formation</h3>
-			<img src="{{ asset('images/logos/logo-ap-formation.svg') }}" alt="Logo AP Formation">
-			<h4>Formation Concepteur Développeur d'Applications</h4>
-			<p>Formation en présentiel complète sur la conception et le développement d'applications web</p>
-
-			<p>Février - Mai 2023</p>
-			<h3>Cleatis</h3>
-			<img src="{{ asset('images/logos/logo-cleatis.webp') }}" alt="Logo Cleatis">
-			<h4>Stage Développeur Web</h4>
-			<p>Stage d'immersion en entreprise et de mise en pratique des compétences acquises en formation</p>
-		</section>
-
+		{# PROJECTS #}
 		<section id="projects">
-			<h2>Mes réalisations</h2>
 			<div class="projects-content">
-				{% for project in projects %}
-					<div class="row">
-						<div class="left">
-							<h3>{{ project.name }}</h3>
-							<div class="bottom-content">
-								<div class="logos-container">
-									{% for language in project.languages %}
-										<img class="logo" src="{{ vich_uploader_asset(language, 'logoFile') }}" alt="{{ language.logoAlt }}">
-									{% endfor %}
-								</div>
-								<div class="description">
-									<p>{{ project.description }}</p>
+				<h2 class="title-section">Mes réalisations</h2>
+				<div class="rows-container">
+					{% for project in projects %}
+						<div class="row">
+							<div class="left">
+								<h3>{{ project.name }}</h3>
+								<div class="bottom-content">
+									<div class="logos-container">
+										{% for tool in project.tools %}
+											<div class="logo-box">
+												<img class="logo" src="{{ vich_uploader_asset(tool, 'logoFile') }}" alt="{{ tool.logoAlt }}">
+												<h4>{{ tool.name }}</4>
+											</div>
+										{% endfor %}
+									</div>
+									<div class="description">
+										<p>{{ project.description }}</p>
+									</div>
 								</div>
 							</div>
-						</div>
 							<div class="right">
 								<a href="{{ project.link }}" target="_blank">
 									<img src="{{ vich_uploader_asset(project, 'imageFile') }}" alt="{{ project.imgAlt }}">
 								</a>
 							</div>
-					</div>
-				{% endfor %}
+						</div>
+					{% endfor %}
+				</div>
 			</div>
 		</section>
-
+		{# CONTACT #}
 		<section id="contact">
-			<h2>Contact</h2>
-			{% include "components/contact_form.html.twig" %}
+			<div class="contact-content">
+				<h2 class="title-section">Contactez-moi</h2>
+				{% include "components/contact_form.html.twig" %}
+			</div>
 		</section>
-
-		{% block footer %}
-            {% include "components/footer.html.twig" %}
-        {% endblock %}
 	</div>
 {% endblock %}

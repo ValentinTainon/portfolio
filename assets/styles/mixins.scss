@@ -4,21 +4,3 @@
     justify-content: $justify;
     align-items: $align;
 }
-
-@keyframes sliding-icon {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-20vw);
-    }
-}
-
-@keyframes reverse-sliding-icon {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-20vw);
-    }
-}

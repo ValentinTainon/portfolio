@@ -5,36 +5,36 @@
     "icons": [
         {
             "media": "(prefers-color-scheme: no-preference)",
-            "src": "{{ asset('images/favicons/favicon-light-mode.png') }}",
+            "src": "{{ asset('images/favicons/android-chrome-light-192x192.png') }}",
             "sizes": "192x192"
         },
         {
             "media": "(prefers-color-scheme: no-preference)",
-            "src": "{{ asset('images/favicons/favicon-dark-mode.png') }}",
+            "src": "{{ asset('images/favicons/android-chrome-light-512x512.png') }}",
             "sizes": "512x512"
         },
         {
             "media": "(prefers-color-scheme: light)",
-            "src": "{{ asset('images/favicons/favicon-light-mode.png') }}",
+            "src": "{{ asset('images/favicons/android-chrome-light-192x192.png') }}",
             "sizes": "192x192"
         },
         {
             "media": "(prefers-color-scheme: light)",
-            "src": "{{ asset('images/favicons/favicon-light-mode.png') }}",
+            "src": "{{ asset('images/favicons/android-chrome-light-512x512.png') }}",
             "sizes": "512x512"
         },
         {
             "media": "(prefers-color-scheme: dark)",
-            "src": "{{ asset('images/favicons/favicon-dark-mode.png') }}",
+            "src": "{{ asset('images/favicons/android-chrome-dark-192x192.png') }}",
             "sizes": "192x192"
         },
         {
             "media": "(prefers-color-scheme: dark)",
-            "src": "{{ asset('images/favicons/favicon-dark-mode.png') }}",
+            "src": "{{ asset('images/favicons/android-chrome-dark-512x512.png') }}",
             "sizes": "512x512"
         }
     ],
-    "theme_color": "#009f74",
-    "background_color": "#faf9fc",
+    "theme_color": "#009F74",
+    "background_color": "#FAF9FC",
     "display": "standalone"
 }

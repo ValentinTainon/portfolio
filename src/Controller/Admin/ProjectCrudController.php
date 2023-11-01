@@ -43,10 +43,10 @@ class ProjectCrudController extends AbstractCrudController
         yield TextField::new('name', 'Nom du projet');
         yield TextareaField::new('description', 'Description');
         yield TextField::new('link', 'Lien');
-        yield TextField::new('imageFile', 'Image (jpg, png, webp) Taille max: 2 Mo')->setFormType(VichImageType::class)->onlyOnForms()->setRequired($pageName === Crud::PAGE_NEW ? true : false);
+        yield TextField::new('imageFile', 'Image (svg, png, jpg, webp) Taille max: 2 Mo')->setFormType(VichImageType::class)->onlyOnForms()->setRequired($pageName === Crud::PAGE_NEW ? true : false);
         yield ImageField::new('imageName', 'Image')->setBasePath('/images/projects')->onlyOnIndex();
         yield DateTimeField::new('updatedAt', 'Date de modification')->onlyOnIndex();
         yield TextField::new('imgAlt', 'Texte alternatif');
-        yield AssociationField::new('languages', 'Langages');
+        yield AssociationField::new('tools', 'Outils');
     }
 }

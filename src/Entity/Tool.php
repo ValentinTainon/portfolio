@@ -3,13 +3,13 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Repository\LanguageRepository;
+use App\Repository\ToolRepository;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
-#[ORM\Entity(repositoryClass: LanguageRepository::class)]
+#[ORM\Entity(repositoryClass: ToolRepository::class)]
 #[Vich\Uploadable]
-class Language
+class Tool
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

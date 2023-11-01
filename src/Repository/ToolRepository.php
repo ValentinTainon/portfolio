@@ -2,27 +2,27 @@
 
 namespace App\Repository;
 
-use App\Entity\Language;
+use App\Entity\Tool;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Language>
+ * @extends ServiceEntityRepository<Tool>
  *
- * @method Language|null find($id, $lockMode = null, $lockVersion = null)
- * @method Language|null findOneBy(array $criteria, array $orderBy = null)
- * @method Language[]    findAll()
- * @method Language[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Tool|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Tool|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Tool[]    findAll()
+ * @method Tool[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class LanguageRepository extends ServiceEntityRepository
+class ToolRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Language::class);
+        parent::__construct($registry, Tool::class);
     }
 
 //    /**
-//     * @return Language[] Returns an array of Language objects
+//     * @return Tool[] Returns an array of Tool objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -36,7 +36,7 @@ class LanguageRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Language
+//    public function findOneBySomeField($value): ?Tool
 //    {
 //        return $this->createQueryBuilder('l')
 //            ->andWhere('l.exampleField = :val')

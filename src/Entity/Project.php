@@ -40,12 +40,12 @@ class Project
     #[ORM\Column(length: 100)]
     private ?string $imgAlt = null;
 
-    #[ORM\ManyToMany(targetEntity: Language::class)]
-    private Collection $languages;
+    #[ORM\ManyToMany(targetEntity: Tool::class)]
+    private Collection $tools;
 
     public function __construct()
     {
-        $this->languages = new ArrayCollection();
+        $this->tools = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -149,25 +149,25 @@ class Project
     }
 
     /**
-     * @return Collection<int, Language>
+     * @return Collection<int, Tool>
      */
-    public function getLanguages(): Collection
+    public function getTools(): Collection
     {
-        return $this->languages;
+        return $this->tools;
     }
 
-    public function addLanguage(Language $language): static
+    public function addTool(Tool $tool): static
     {
-        if (!$this->languages->contains($language)) {
-            $this->languages->add($language);
+        if (!$this->tools->contains($tool)) {
+            $this->tools->add($tool);
         }
 
         return $this;
     }
 
-    public function removeLanguage(Language $language): static
+    public function removeTool(Tool $tool): static
     {
-        $this->languages->removeElement($language);
+        $this->tools->removeElement($tool);
 
         return $this;
     }

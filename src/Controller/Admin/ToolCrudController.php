@@ -2,7 +2,7 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Language;
+use App\Entity\Tool;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
@@ -12,25 +12,25 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
-class LanguageCrudController extends AbstractCrudController
+class ToolCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Language::class;
+        return Tool::class;
     }
 
     public function configureCrud(Crud $crud): Crud
     {
-        return $crud->setPageTitle(Crud::PAGE_INDEX, 'Langages')
-            ->setPageTitle(Crud::PAGE_NEW, 'Ajouter un langage')
-            ->setPageTitle(Crud::PAGE_EDIT, 'Modifier le langage');
+        return $crud->setPageTitle(Crud::PAGE_INDEX, 'Technos')
+            ->setPageTitle(Crud::PAGE_NEW, 'Ajouter une techno')
+            ->setPageTitle(Crud::PAGE_EDIT, 'Modifier la techno');
     }
 
     public function configureActions(Actions $actions): Actions
     {
-        return $actions->update(Crud::PAGE_INDEX, Action::NEW, fn (Action $action) => $action->setLabel('Ajouter un langage'))
+        return $actions->update(Crud::PAGE_INDEX, Action::NEW, fn (Action $action) => $action->setLabel('Ajouter une techno'))
             ->update(Crud::PAGE_INDEX, Action::EDIT, fn (Action $action) => $action->setLabel('Modifier'))
-            ->update(Crud::PAGE_NEW, Action::SAVE_AND_ADD_ANOTHER, fn (Action $action) => $action->setLabel('Sauvegarder et ajouter un nouveau langage'))
+            ->update(Crud::PAGE_NEW, Action::SAVE_AND_ADD_ANOTHER, fn (Action $action) => $action->setLabel('Sauvegarder et ajouter une nouvelle techno'))
             ->update(Crud::PAGE_NEW, Action::SAVE_AND_RETURN, fn (Action $action) => $action->setLabel('Sauvegarder'))
             ->update(Crud::PAGE_EDIT, Action::SAVE_AND_CONTINUE, fn (Action $action) => $action->setLabel('Sauvegarder et continuer les modifications'));
     }

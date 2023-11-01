@@ -5,20 +5,41 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Bienvenue sur mon portfolio">
-        <link rel="icon" href="/favicon-light-mode.ico" type="image/x-icon" sizes="48x48">
-        <link rel="icon"
-            href="{{ asset('images/favicons/favicon-light-mode.svg') }}"
-            media="(prefers-color-scheme: light)"
-            type="image/svg+xml"
+        <link rel="icon" 
+            href="/favicon-light.ico" 
+            media="(prefers-color-scheme: light)" 
+            sizes="48x48">
+        <link rel="icon" 
+            href="/favicon-dark.ico" 
+            media="(prefers-color-scheme: dark)" 
+            sizes="48x48">
+        <link rel="icon" 
+            href="{{ asset('images/favicons/favicon-light.svg') }}" 
+            media="(prefers-color-scheme: light)" 
+            type="image/svg+xml" 
             sizes="any">
-        <link rel="icon"
-            href="{{ asset('images/favicons/favicon-dark-mode.svg') }}"
-            media="(prefers-color-scheme: dark)"
-            type="image/svg+xml"
+        <link rel="icon" 
+            href="{{ asset('images/favicons/favicon-dark.svg') }}" 
+            media="(prefers-color-scheme: dark)" 
+            type="image/svg+xml" 
             sizes="any">
-        <link rel="mask-icon" href="{{ asset('images/favicons/favicon.svg') }}" color="#000000">
-        <link rel="apple-touch-icon" href="{{ asset('images/favicons/apple-touch-icon.png') }}" sizes="180x180">
-        <link rel="manifest" href="/manifest.json">
+        <link rel="mask-icon" 
+            href="{{ asset('images/favicons/safari-mask-icon.svg') }}" 
+            media="(prefers-color-scheme: light)" 
+            color="#009F74">
+        <link rel="mask-icon" 
+            href="{{ asset('images/favicons/safari-mask-icon.svg') }}" 
+            media="(prefers-color-scheme: dark)" 
+            color="#31FF72">
+        <link rel="apple-touch-icon" 
+            href="{{ asset('images/favicons/apple-touch-icon-light.png') }}" 
+            media="(prefers-color-scheme: light)" 
+            sizes="180x180">
+        <link rel="apple-touch-icon" 
+            href="{{ asset('images/favicons/apple-touch-icon-dark.png') }}" 
+            media="(prefers-color-scheme: dark)" 
+            sizes="180x180">
+        <link rel="manifest" href="/site.webmanifest">
         <title>{% block title %}Valentin Tainon | Portfolio{% endblock %}</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         {% block stylesheets %}{{ encore_entry_link_tags('app') }}{% endblock %}
