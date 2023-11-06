@@ -1,26 +1,38 @@
-<div class="menu-burger-btn sound">
-	<i class="fa-solid fa-bars"></i>
-	<i class="fa-solid fa-xmark"></i>
-</div>
 <nav>
 	<div class="main-logo-box">
-		<img class="logo-light" src="{{ asset('images/logos/my-logo-light-mode.svg') }}" alt="Logo Valentin Tainon">
-		<img class="logo-dark" src="{{ asset('images/logos/my-logo-dark-mode.svg') }}" alt="Logo Valentin Tainon">
+		{% include "components/main_logos.html.twig" %}
 	</div>
 	<ul class="nav-box">
 		{% if is_granted('ROLE_ADMIN') %}
-			<li class="nav-element"><a href="{{ path('admin') }}" class="btn sound">Admin&nbsp;<i class="fa-solid fa-gear"></i></a></li>
+			<li class="nav-element">
+				<a href="{{ path('admin') }}" class="btn sound">Admin&nbsp;<i class="fa-solid fa-gear"></i>
+				</a>
+			</li>
 		{% endif %}
-		<li class="nav-element"><a href="#home" class="btn sound">Accueil</a></li>
-		<li class="nav-element"><a href="#about" class="btn sound">À propos</a></li>
-		<li class="nav-element"><a href="#projects" class="btn sound">Réalisations</a></li>
-		<li class="nav-element"><a href="#contact" class="btn sound">Contact</a></li>
-		<li class="nav-element"><i class="theme-icon sound fa-solid"></i></li>
+		<li class="nav-element">
+			<a href="#home" class="btn sound home-btn">Accueil</a>
+		</li>
+		<li class="nav-element">
+			<a href="#about" class="btn sound about-btn">À propos</a>
+		</li>
+		<li class="nav-element">
+			<a href="#projects" class="btn sound projects-btn">Réalisations</a>
+		</li>
+		<li class="nav-element">
+			<a href="#contact" class="btn sound contact-btn">Contact</a>
+		</li>
+		<li class="nav-element">
+			{% include "components/theme_toggle.html.twig" %}
+		</li>
 	</ul>
 	<div class="footer-content">
 		<div class="social nav-element">
-			<a href="https://github.com/ValentinTnn" target="_blank"><i class="fa-brands fa-github"></i></a>
-			<a href="https://www.linkedin.com/in/valentin-tainon-a63456242/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+			<a href="https://github.com/ValentinTnn" target="_blank">
+				<i class="fa-brands fa-github"></i>
+			</a>
+			<a href="https://www.linkedin.com/in/valentin-tainon-a63456242/" target="_blank">
+				<i class="fa-brands fa-linkedin"></i>
+			</a>
 		</div>
 		<p class="copyright nav-element">© Valentin Tainon | 2023</p>
 	</div>

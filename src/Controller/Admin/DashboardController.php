@@ -23,7 +23,7 @@ class DashboardController extends AbstractDashboardController
 
     public function configureDashboard(): Dashboard
     {
-        return Dashboard::new()->setTitle('Portfolio')->setFaviconPath("images/favicons/favicon-light-mode.svg");
+        return Dashboard::new()->setTitle('Portfolio')->setFaviconPath("images/favicons/favicon.svg");
     }
 
     public function configureMenuItems(): iterable

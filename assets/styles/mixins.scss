@@ -1,6 +1,6 @@
 @mixin flex-mid ($direction: initial, $justify: center, $align: center) {
-    display: flex;
-    flex-direction: $direction;
-    justify-content: $justify;
-    align-items: $align;
+    display: flex !important;
+    flex-direction: $direction !important;
+    justify-content: $justify !important;
+    align-items: $align !important;
 }

@@ -5,18 +5,28 @@
 	{% include "components/loading_page.html.twig" %}
 	{# HOMEPAGE #}
 	<div class="homepage">
+		{# MENU BURGER BTN #}
+		<div class="menu-burger-btn sound">
+			<i class="fa-solid fa-bars"></i>
+			<i class="fa-solid fa-xmark"></i>
+		</div>
+		{# RESPONSIVE THEME TOGGLE #}
+		<div class="responsive-theme-toggle">
+			{% include "components/theme_toggle.html.twig" %}
+		</div>
 		{# NAVBAR #}
 		{% include "components/navbar.html.twig" %}
 		{# HEADER #}
 		<header id="home">
-			<div class="header-content">
+			<div class="header-content fade-out-element">
 				<h1>Bienvenue, moi c'est <strong>Valentin Tainon</strong></h1>
 				<h2>Je suis <strong>Développeur Web</strong> Junior</h2>
 			</div>
 		</header>
+		<div class="section-border"></div>
 		{# ABOUT #}
 		<section id="about">
-			<div class="about-content">
+			<div class="about-content fade-out-element">
 				<h2 class="title-section">À propos de moi</h2>
 				<div class="text-content">
 					<p>
@@ -32,7 +42,6 @@
 						Passionné de hardware et d'informatique de manière générale, j'ai 
 						développé une curiosité qui me pousse à apprendre en permanence.
 					</p>
-		
 					<p>
 						Bien que j'en sois à mes balbutiements, j'ai la volonté de monter rapidement 
 						en compétences et de proposer des projets toujours plus perfectionnés. 
@@ -42,9 +51,10 @@
 				<a class="btn sound" href="{{ asset('document/cv.pdf') }}">Téléchargez mon CV</a>
 			</div>
 		</section>
+		<div class="section-border"></div>
 		{# PROJECTS #}
 		<section id="projects">
-			<div class="projects-content">
+			<div class="projects-content fade-out-element">
 				<h2 class="title-section">Mes réalisations</h2>
 				<div class="rows-container">
 					{% for project in projects %}
@@ -56,28 +66,48 @@
 										{% for tool in project.tools %}
 											<div class="logo-box">
 												<img class="logo" src="{{ vich_uploader_asset(tool, 'logoFile') }}" alt="{{ tool.logoAlt }}">
-												<h4>{{ tool.name }}</4>
+												<h4>{{ tool.name }}</h4>
 											</div>
 										{% endfor %}
 									</div>
 									<div class="description">
-										<p>{{ project.description }}</p>
+										{{ project.description|raw }}
 									</div>
 								</div>
 							</div>
 							<div class="right">
-								<a href="{{ project.link }}" target="_blank">
-									<img src="{{ vich_uploader_asset(project, 'imageFile') }}" alt="{{ project.imgAlt }}">
-								</a>
+								<img src="{{ vich_uploader_asset(project, 'imageFile') }}" alt="{{ project.imgAlt }}">
+								<a class="btn" href="{{ project.link }}" target="_blank">Visitez le site</a>
+							</div>
+						</div>
+						<div class="row-responsive">
+							<h3>{{ project.name }}<span class="row-pointer">&nbsp;<i class="fa-solid fa-hand-pointer"></i></span></h3>
+							<div class="up">
+								<div class="logos-container">
+									{% for tool in project.tools %}
+										<div class="logo-box">
+											<img class="logo" src="{{ vich_uploader_asset(tool, 'logoFile') }}" alt="{{ tool.logoAlt }}">
+											<h4>{{ tool.name }}</h4>
+										</div>
+									{% endfor %}
+								</div>
+								<div class="description">
+									{{ project.description|raw }}
+								</div>
+							</div>
+							<div class="down">
+								<img src="{{ vich_uploader_asset(project, 'imageFile') }}" alt="{{ project.imgAlt }}">
+								<a class="btn" href="{{ project.link }}" target="_blank">Visitez le site</a>
 							</div>
 						</div>
 					{% endfor %}
 				</div>
 			</div>
 		</section>
+		<div class="section-border"></div>
 		{# CONTACT #}
 		<section id="contact">
-			<div class="contact-content">
+			<div class="contact-content fade-out-element">
 				<h2 class="title-section">Contactez-moi</h2>
 				{% include "components/contact_form.html.twig" %}
 			</div>
