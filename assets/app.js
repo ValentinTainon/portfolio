@@ -7,6 +7,10 @@ const themeToggles = document.querySelectorAll(".theme-toggle");
 const darkMode = window.matchMedia("(prefers-color-scheme:dark)");
 // Nav btn color animation
 const navBtn = document.querySelectorAll("nav .btn");
+const homeBtn = document.querySelector(".home-btn");
+const aboutBtn = document.querySelector(".about-btn");
+const projectsBtn = document.querySelector(".projects-btn");
+const contactBtn = document.querySelector(".contact-btn");
 // Cursor animation
 const homepage = document.querySelector(".homepage");
 const cursorBox = body.appendChild(document.createElement("div"));
@@ -21,7 +25,7 @@ const allBtn = document.querySelectorAll(".sound");
 const fadeOutElements = document.querySelectorAll(".fade-out-element");
 // Rows projects animation
 const rows = document.querySelectorAll(".rows-container .row");
-// Rows projects animation
+// Rows projects responsive animation
 const rowsResponsive = document.querySelectorAll(".rows-container .row-responsive");
 // Menu burger btn animation
 const nav = document.querySelector("nav");
@@ -72,15 +76,15 @@ const sound = (key) => {
 };
 // Nav btn color animation
 const colorNavBtn = (entry) => {
-    navBtn.forEach(links => { links.classList.remove("btn-target-color"); });
+    navBtn.forEach(btn => { btn.classList.remove("btn-target-color"); });
     if (entry.contains("header-content")) {
-        navBtn[1].classList.add("btn-target-color");
+        homeBtn.classList.add("btn-target-color");
     } else if (entry.contains("about-content")) {
-        navBtn[2].classList.add("btn-target-color");
+        aboutBtn.classList.add("btn-target-color");
     } else if (entry.contains("projects-content")) {
-        navBtn[3].classList.add("btn-target-color");
+        projectsBtn.classList.add("btn-target-color");
     } else if (entry.contains("contact-content")) {
-        navBtn[4].classList.add("btn-target-color");
+        contactBtn.classList.add("btn-target-color");
     }
 };
 // Onscroll fade-in animation
