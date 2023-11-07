@@ -126,7 +126,7 @@ window.addEventListener("load", () => {
     } else {
         setTimeout(() => {
             fadeOutElements.forEach(element => observer.observe(element));
-        }, 1700);
+        }, 1500);
     }
 });
 // Manage theme (onchange & onclick)
