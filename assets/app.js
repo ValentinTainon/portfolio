@@ -32,7 +32,9 @@ const nav = document.querySelector("nav");
 const menuBurgerBtn = document.querySelector(".menu-burger-btn");
 let barsIcon = true;
 // Responsive
-const MediumScreen = window.matchMedia("(max-width: 1200px)");
+const mediumScreen = window.matchMedia("(max-width: 1200px)");
+const mediumSmallScreen = window.matchMedia("(max-width: 900px)");
+const smallScreen = window.matchMedia("(max-width: 600px)");
 
 /* FUNCTIONS */
 // Manage theme
@@ -46,7 +48,7 @@ const manageTheme = (themeStyle) => {
 const HeaderInitialisation = () => {
     const loadingPage = document.querySelector(".loading-page");
     const navElements = document.querySelectorAll(".nav-element");
-    if (MediumScreen.matches) {
+    if (mediumScreen.matches) {
         loadingPage?.classList.add("end-loading-animation-small-media");
         setTimeout(() => { 
             body.classList.add("homepage-transition");
@@ -76,14 +78,17 @@ const sound = (key) => {
 };
 // Nav btn color animation
 const colorNavBtn = (entry) => {
-    navBtn.forEach(btn => { btn.classList.remove("btn-target-color"); });
     if (entry.contains("header-content")) {
+        navBtn.forEach(btn => { btn.classList.remove("btn-target-color"); });
         homeBtn.classList.add("btn-target-color");
     } else if (entry.contains("about-content")) {
+        navBtn.forEach(btn => { btn.classList.remove("btn-target-color"); });
         aboutBtn.classList.add("btn-target-color");
-    } else if (entry.contains("projects-content")) {
+    } else if (entry.contains("project")) {
+        navBtn.forEach(btn => { btn.classList.remove("btn-target-color"); });
         projectsBtn.classList.add("btn-target-color");
     } else if (entry.contains("contact-content")) {
+        navBtn.forEach(btn => { btn.classList.remove("btn-target-color"); });
         contactBtn.classList.add("btn-target-color");
     }
 };
@@ -119,7 +124,7 @@ window.addEventListener("DOMContentLoaded", () => {
 // Header initialisation
 window.addEventListener("load", () => {
     HeaderInitialisation();
-    if (MediumScreen.matches) {
+    if (mediumScreen.matches) {
         setTimeout(() => {
             fadeOutElements.forEach(element => observer.observe(element));
         }, 300);
@@ -149,7 +154,9 @@ window.addEventListener("mousemove", (e) => {
 });
 // Audio btn
 allBtn.forEach(btn => {
-    btn.addEventListener("mouseover", () => { sound("Hover"); });
+    if (!mediumScreen.matches && !mediumSmallScreen.matches && !smallScreen.matches) {
+        btn.addEventListener("mouseover", () => { sound("Hover"); });
+    }
     btn.addEventListener("click", () => { sound("Click"); });
 });
 // Rows projects animation

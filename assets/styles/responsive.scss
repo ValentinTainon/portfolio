@@ -129,10 +129,11 @@
 }
 
 @media screen and (max-width: 900px) {
-
     // Responsive rows projects
-    .row {
-        display: none !important;
+    #projects {
+        .row {
+            display: none !important;
+        }
     }
 
     .row-responsive {
@@ -141,19 +142,28 @@
         height: -webkit-fit-content !important;
         height: -moz-fit-content !important;
         height: fit-content !important;
-        @include flex-mid($direction: column);
+        display: -webkit-box !important;
+        display: -ms-flexbox !important;
+        display: flex !important;
+        -webkit-box-orient: vertical !important;
+        -webkit-box-direction: normal !important;
+            -ms-flex-direction: column !important;
+                flex-direction: column !important;
+        -webkit-box-pack: center !important;
+            -ms-flex-pack: center !important;
+                justify-content: center !important;
+        -webkit-box-align: center !important;
+            -ms-flex-align: center !important;
+                align-items: center !important;
         padding: 0 5vw !important;
         -webkit-transition: all .3s ease-in-out !important;
         -o-transition: all .3s ease-in-out !important;
         transition: all .3s ease-in-out !important;
-
-        &:nth-child(2) {
-            border-top: 1px solid var(--primary-clr) !important;
-            border-bottom: 1px solid var(--primary-clr) !important;
-        }
+        border-top: 1px solid var(--primary-clr) !important;
+        border-bottom: 1px solid var(--primary-clr) !important;
 
         &:not(:first-child) {
-            border-bottom: 1px solid var(--primary-clr) !important;
+            translate: 0 -1px !important;
         }
 
         h3 {
@@ -176,21 +186,30 @@
 
         .up {
             width: 100% !important;
-            height: 350px !important;
+            min-height: 350px !important;
             display: -ms-grid !important;
             display: grid !important;
             -ms-grid-rows: 30% 10px 70% !important;
             grid-template-rows: 30% 70% !important;
             opacity: 0 !important;
-            padding-top: 10% !important;
+            padding-top: 60px !important;
             -webkit-transition: all .3s ease-in-out .3s !important;
             -o-transition: all .3s ease-in-out .3s !important;
             transition: all .3s ease-in-out .3s !important;
 
             .logos-container {
                 width: 100% !important;
-                @include flex-mid;
+                display: -webkit-box !important;
+                display: -ms-flexbox !important;
+                display: flex !important;
+                -webkit-box-pack: center !important;
+                    -ms-flex-pack: center !important;
+                        justify-content: center !important;
+                -webkit-box-align: center !important;
+                    -ms-flex-align: center !important;
+                        align-items: center !important;
                 gap: 30px !important;
+                margin: 10px 0 !important;
 
                 .logo-box {
                     width: -webkit-fit-content !important;
@@ -208,10 +227,22 @@
             .description {
                 width: 100% !important;
                 color: var(--secondary-txt) !important;
-                @include flex-mid($direction: column, $align: start);
+                display: -webkit-box !important;
+                display: -ms-flexbox !important;
+                display: flex !important;
+                -webkit-box-orient: vertical !important;
+                -webkit-box-direction: normal !important;
+                    -ms-flex-direction: column !important;
+                        flex-direction: column !important;
+                -webkit-box-pack: center !important;
+                    -ms-flex-pack: center !important;
+                        justify-content: center !important;
+                -webkit-box-align: start !important;
+                    -ms-flex-align: start !important;
+                        align-items: start !important;
                 gap: 10px !important;
                 line-height: 1.5 !important;
-                overflow: visible !important;
+                font-weight: 400 !important;
 
                 li {
                     margin-bottom: 10px !important;
@@ -295,12 +326,25 @@
         }
     }
 
+    #about {
+        h2 {
+            margin-bottom: 30px !important;
+        }
+        .text-content {
+            gap: 15px !important;
+            p {
+                line-height: 1.8 !important;
+            }
+        }
+        .btn {
+            margin: 30px auto 0 auto !important;
+        }
+    }
+
     #projects {
         padding: 20px 0 !important;
 
         .up {
-            padding-top: 15% !important;
-
             .logo-box img {
                 width: 30px !important;
             }
@@ -319,15 +363,14 @@
     }
 
     #contact_form {
-        grid-template-areas:
+            grid-template-areas:
             "nom nom"
             "email email"
             "objet objet"
             "message message"
-            "recaptcha recaptcha"
             "submit submit"
             !important;
-        gap: 30px !important;
+        gap: 40px !important;
 
         input:focus~label,
         input:valid~label,

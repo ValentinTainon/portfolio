@@ -4,17 +4,24 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Valentin Tainon - Développeur Web{% endblock %}</title>
         <meta name="description" content="Bienvenue, moi c'est Valentin, je suis développeur web junior. Visitez mon portfolio afin d'y découvrir mes projets.">
         <link rel="icon" 
-            href="/favicon-light.ico" 
+            href="{{ asset('images/favicons/favicon-light.ico') }}" 
             media="(prefers-color-scheme: light)" 
             sizes="48x48">
         <link rel="icon" 
-            href="/favicon-dark.ico" 
+            href="{{ asset('images/favicons/favicon-dark.ico') }}" 
             media="(prefers-color-scheme: dark)" 
             sizes="48x48">
         <link rel="icon" 
-            href="{{ asset('images/favicons/favicon.svg') }}"
+            href="{{ asset('images/favicons/favicon-light.svg') }}" 
+            media="(prefers-color-scheme: light)" 
+            type="image/svg+xml" 
+            sizes="any">
+        <link rel="icon" 
+            href="{{ asset('images/favicons/favicon-dark.svg') }}" 
+            media="(prefers-color-scheme: dark)" 
             type="image/svg+xml" 
             sizes="any">
         <link rel="mask-icon" 
@@ -33,11 +40,9 @@
             href="{{ asset('images/favicons/apple-touch-icon-dark.png') }}" 
             media="(prefers-color-scheme: dark)" 
             sizes="180x180">
-        <link rel="manifest" href="/site.webmanifest">
-        <title>{% block title %}Valentin Tainon - Développeur Web{% endblock %}</title>
+        <link rel="manifest" href="{{ asset('site.webmanifest') }}" crossorigin="use-credentials">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         {% block stylesheets %}{{ encore_entry_link_tags('app') }}{% endblock %}
-            {{ encore_entry_link_tags('app') }}
     </head>
     <body data-theme="light">
         {% for message in app.flashes('success') %}
@@ -51,5 +56,4 @@
         {% block body %}{% endblock %}
     </body>
     {% block javascripts %}{{ encore_entry_script_tags('app') }}{% endblock %}
-            {{ encore_entry_script_tags('app') }}
 </html>

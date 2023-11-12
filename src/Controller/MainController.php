@@ -15,9 +15,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class MainController extends AbstractController
 {
-    public function __construct(private readonly AdminRepository $adminRepository)
-    {
-    }
+    public function __construct(private readonly AdminRepository $adminRepository){}
 
     #[Route('/', name: 'app_homepage')]
     public function index(Request $request, MailerInterface $mailer, ProjectRepository $projectRepository): Response
@@ -27,9 +25,6 @@ class MainController extends AbstractController
             // RECUPERATION DES PROJETS
             $projects = $projectRepository->findBy([], ['updatedAt' => 'DESC']);
     
-            // RECUPERATION DE L'EMAIL ADMINISTRATEUR
-            $adminEmail = $this->adminRepository->findOneByRole('["ROLE_ADMIN"]')->getEmail();
-    
             // FORMULAIRE DE CONTACT
             $contactForm = $this->createForm(ContactFormType::class);
             $contactForm->handleRequest($request);
@@ -38,10 +33,10 @@ class MainController extends AbstractController
                 $contactFormData = $contactForm->getData();
     
                 $email = (new TemplatedEmail())
-                    ->from(new Address($contactFormData['email'], $contactFormData['nom']))
-                    ->to(new Address($adminEmail, 'Portfolio'))
+                    ->from(new Address("valentin.tainon@valentintainon.dev", "valentintainon.dev"))
+                    ->to(new Address("valentin.tainon@valentintainon.dev", "valentintainon.dev"))
                     ->subject($contactFormData['objet'])
-                    ->text($contactFormData['message'])
+                    ->text("Message de " . $contactFormData['nom'] . ", " . $contactFormData['email'] . ", " . $contactFormData['message'])
                     ->htmlTemplate('components/contact_email.html.twig')
                     ->context(['contactFormData' => $contactFormData]);
     

@@ -26,8 +26,8 @@
 		<div class="section-border"></div>
 		{# ABOUT #}
 		<section id="about">
-			<div class="about-content fade-out-element">
-				<h2 class="title-section">À propos de moi</h2>
+			<h2 class="title-section fade-out-element">À propos de moi</h2>
+			<div class="about-content fade-out-element about">
 				<div class="text-content">
 					<p>
 						<i class="fa-solid fa-quote-left"></i> 
@@ -43,7 +43,7 @@
 						développé une curiosité qui me pousse à apprendre en permanence.
 					</p>
 					<p>
-						Bien que j'en sois à mes balbutiements, j'ai la volonté de monter rapidement 
+						Bien que j'en sois à mes débuts, j'ai la volonté de monter rapidement 
 						en compétences et de proposer des projets toujours plus travaillés.
 					</p>
 					<p>
@@ -58,11 +58,11 @@
 		<div class="section-border"></div>
 		{# PROJECTS #}
 		<section id="projects">
-			<div class="projects-content fade-out-element">
-				<h2 class="title-section">Mes réalisations</h2>
+			<div class="projects-content">
+				<h2 class="title-section fade-out-element">Mes réalisations</h2>
 				<div class="rows-container">
 					{% for project in projects %}
-						<div class="row">
+						<div class="row fade-out-element project">
 							<div class="left">
 								<h3>{{ project.name }}</h3>
 								<div class="bottom-content">
@@ -84,7 +84,7 @@
 								<a class="btn" href="{{ project.link }}" target="_blank">Visitez le site</a>
 							</div>
 						</div>
-						<div class="row-responsive">
+						<div class="row-responsive fade-out-element project">
 							<h3>{{ project.name }}<span class="row-pointer">&nbsp;<i class="fa-solid fa-hand-pointer"></i></span></h3>
 							<div class="up">
 								<div class="logos-container">
@@ -111,8 +111,8 @@
 		<div class="section-border"></div>
 		{# CONTACT #}
 		<section id="contact">
+			<h2 class="title-section fade-out-element">Contactez-moi</h2>
 			<div class="contact-content fade-out-element">
-				<h2 class="title-section">Contactez-moi</h2>
 				{% include "components/contact_form.html.twig" %}
 			</div>
 		</section>
