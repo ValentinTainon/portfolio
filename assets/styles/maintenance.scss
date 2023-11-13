@@ -7,7 +7,7 @@
     @include flex-mid($direction: column);
 
     p {
-        font-size: 4.8rem;
+        font-size: clamp(2.4rem, calc(1.8rem + 1.4vw), 4.5rem);
         text-transform: uppercase;
         text-align: center;
         color: #dee0e2;
@@ -15,7 +15,7 @@
     }
 
     img {
-        width: 30%;
+        width: calc(200px + 20vw);
         margin-top: 60px;
     }
 }
