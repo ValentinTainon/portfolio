@@ -69,7 +69,7 @@
 									<div class="logos-container">
 										{% for tool in project.tools %}
 											<div class="logo-box">
-												<img class="logo" src="{{ vich_uploader_asset(tool, 'logoFile') }}" alt="{{ tool.logoAlt }}">
+												<img class="logo" src="{{ vich_uploader_asset(tool, 'logoFile') }}" alt="{{ tool.logoAlt }}" loading="lazy">
 												<h4>{{ tool.name }}</h4>
 											</div>
 										{% endfor %}
@@ -80,7 +80,7 @@
 								</div>
 							</div>
 							<div class="right">
-								<img src="{{ vich_uploader_asset(project, 'imageFile') }}" alt="{{ project.imgAlt }}">
+								<img src="{{ vich_uploader_asset(project, 'imageFile') }}" alt="{{ project.imgAlt }}" loading="lazy">
 								<a class="btn" href="{{ project.link }}" target="_blank">Visitez le site</a>
 							</div>
 						</div>
@@ -90,7 +90,7 @@
 								<div class="logos-container">
 									{% for tool in project.tools %}
 										<div class="logo-box">
-											<img class="logo" src="{{ vich_uploader_asset(tool, 'logoFile') }}" alt="{{ tool.logoAlt }}">
+											<img class="logo" src="{{ vich_uploader_asset(tool, 'logoFile') }}" alt="{{ tool.logoAlt }}" loading="lazy">
 											<h4>{{ tool.name }}</h4>
 										</div>
 									{% endfor %}
@@ -100,7 +100,7 @@
 								</div>
 							</div>
 							<div class="down">
-								<img src="{{ vich_uploader_asset(project, 'imageFile') }}" alt="{{ project.imgAlt }}">
+								<img src="{{ vich_uploader_asset(project, 'imageFile') }}" alt="{{ project.imgAlt }}" loading="lazy">
 								<a class="btn" href="{{ project.link }}" target="_blank">Visitez le site</a>
 							</div>
 						</div>

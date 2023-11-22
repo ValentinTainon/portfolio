@@ -24,7 +24,7 @@ class MainController extends AbstractController
         if(!$this->adminRepository->findOneByRole('["ROLE_ADMIN"]')->isEnableMaintenance()) {
             // RECUPERATION DES PROJETS
             $projects = $projectRepository->findBy([], ['updatedAt' => 'DESC']);
-    
+
             // FORMULAIRE DE CONTACT
             $contactForm = $this->createForm(ContactFormType::class);
             $contactForm->handleRequest($request);

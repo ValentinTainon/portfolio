@@ -9,7 +9,7 @@ return array (
   'DATABASE_URL' => 'mysql://root:@127.0.0.1:3306/portfolio?serverVersion=8&charset=utf8mb4',
   # 'DATABASE_URL' => 'mysql://dbu2183177:Vale5375$@db5014742922.hosting-data.io/dbs12248430?serverVersion=8.0&charset=utf8mb4',
   'MAILER_DSN' => 'smtp://16bcdd756ab414:1a1c6176f0638d@sandbox.smtp.mailtrap.io:2525',
-  # 'MAILER_DSN' => 'smtp://valentin.tainon@outlook.fr:xsmtpsib-bd7d2aaff666d94965b86f0aa06b9533a5008bb96c8cfcff634024a1436ffe22-KIX6Jf0U9M1EAyLB@smtp-relay.brevo.com:587',
+  # 'MAILER_DSN' => 'smtp://valentin.tainon@outlook.fr:xsmtpsib-bd7d2aaff666d94965b86f0aa06b9533a5008bb96c8cfcff634024a1436ffe22-LYKrM9jP2nZWIvBg@smtp-relay.brevo.com:587',
   'GOOGLE_RECAPTCHA_SITE_KEY' => '6LfkvAwpAAAAAFdfw-YZgrYw9QYgeJH529Bz1ak0',
   'GOOGLE_RECAPTCHA_SECRET_KEY' => '6LfkvAwpAAAAAAnKq3XLvFxucKuw492DakwdGJe8',
   'APP_TIMEZONE' => 'Europe/Paris',

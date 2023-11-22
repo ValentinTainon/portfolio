@@ -127,11 +127,11 @@ window.addEventListener("load", () => {
     if (mediumScreen.matches) {
         setTimeout(() => {
             fadeOutElements.forEach(element => observer.observe(element));
-        }, 300);
+        }, 200);
     } else {
         setTimeout(() => {
             fadeOutElements.forEach(element => observer.observe(element));
-        }, 1500);
+        }, 1300);
     }
 });
 // Manage theme (onchange & onclick)
