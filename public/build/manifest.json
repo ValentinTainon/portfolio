@@ -1,8 +1,8 @@
 {
-  "build/app.css": "/build/app.0b22693d.css",
-  "build/app.js": "/build/app.d9a32e78.js",
-  "build/runtime.js": "/build/runtime.ec2b70cf.js",
-  "build/335.dc973e29.js": "/build/335.dc973e29.js",
+  "build/app.css": "/build/app.css",
+  "build/app.js": "/build/app.js",
+  "build/runtime.js": "/build/runtime.js",
+  "build/vendors-node_modules_core-js_modules_es_array_for-each_js-node_modules_core-js_modules_es_obj-5fa493.js": "/build/vendors-node_modules_core-js_modules_es_array_for-each_js-node_modules_core-js_modules_es_obj-5fa493.js",
   "build/fonts/poppins-bold.woff": "/build/fonts/poppins-bold.caccf29b.woff",
   "build/fonts/poppins-medium.woff": "/build/fonts/poppins-medium.801ab6e3.woff",
   "build/fonts/poppins-regular.woff": "/build/fonts/poppins-regular.bc3ce298.woff",
