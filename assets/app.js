@@ -98,8 +98,6 @@ const observer = new IntersectionObserver((entries) => {
         if(entry.isIntersecting) {
             colorNavBtn(entry.target.classList);
             entry.target.classList.add("fade-in-animation");
-        } else {
-            entry.target.classList.remove("fade-in-animation");
         }
     });
 }, {threshold: 0.5});
